@@ -1,0 +1,10 @@
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\APIs.dll.config
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\APIs.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\APIs.pdb
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\EntityFramework.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\EntityFramework.xml
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\obj\Debug\APIs.csprojResolveAssemblyReference.cache
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\obj\Debug\APIs.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\obj\Debug\APIs.pdb

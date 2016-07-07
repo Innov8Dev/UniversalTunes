@@ -1,5 +1,4 @@
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\DAL\UniversalTunesDataModel\bin\Debug\UniversalTunesDataModel.dll
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\DAL\UniversalTunesDataModel\bin\Debug\UniversalTunesDataModel.pdb
-C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\DAL\UniversalTunesDataModel\obj\Debug\UniversalTunesDataModel.csprojResolveAssemblyReference.cache
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\DAL\UniversalTunesDataModel\obj\Debug\UniversalTunesDataModel.dll
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\DAL\UniversalTunesDataModel\obj\Debug\UniversalTunesDataModel.pdb

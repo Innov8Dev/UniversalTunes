@@ -83,8 +83,8 @@ C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\Univers
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.csprojResolveAssemblyReference.cache
-C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.dll
-C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.pdb
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.Migrations.FirstMigration.resources
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.csproj.GenerateResource.Cache
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.pdb
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.csprojResolveAssemblyReference.cache
