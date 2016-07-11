@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c4a1952941fc446780258f83cb4c1f01" Name="Diagram1">
+        <EntityTypeShape EntityType="UniversalTunesModel.AspNetRole" Width="1.5" PointX="2.375" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UniversalTunesModel.AspNetUser" Width="1.5" PointX="0.5" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="UniversalTunesModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UniversalTunesModel.Album" Width="1.5" PointX="8" PointY="4.125" />
+        <EntityTypeShape EntityType="UniversalTunesModel.Artist" Width="1.5" PointX="10.375" PointY="3.375" />
+        <EntityTypeShape EntityType="UniversalTunesModel.Song" Width="1.5" PointX="8" PointY="0.5" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Albums_Artists" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Songs_Albums" />
+        <EntityTypeShape EntityType="UniversalTunesModel.PriceType" Width="1.5" PointX="6" PointY="4.625" />
+        <EntityTypeShape EntityType="UniversalTunesModel.Privilege" Width="1.5" PointX="4.625" PointY="1.625" />
+        <EntityTypeShape EntityType="UniversalTunesModel.PrivilegeType" Width="1.5" PointX="2.875" PointY="4.75" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Albums_PriceTypes" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Privileges_AspNetRoles" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Songs_PriceTypes" />
+        <AssociationConnector Association="UniversalTunesModel.FK_Privileges_PrivilegeTypes" />
+        <EntityTypeShape EntityType="UniversalTunesModel.UserType" Width="1.5" PointX="0.75" PointY="7.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

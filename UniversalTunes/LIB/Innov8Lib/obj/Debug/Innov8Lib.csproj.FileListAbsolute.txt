@@ -1,0 +1,5 @@
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\Innov8Lib\bin\Debug\Innov8Lib.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\Innov8Lib\bin\Debug\Innov8Lib.pdb
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\Innov8Lib\obj\Debug\Innov8Lib.csprojResolveAssemblyReference.cache
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\Innov8Lib\obj\Debug\Innov8Lib.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\Innov8Lib\obj\Debug\Innov8Lib.pdb

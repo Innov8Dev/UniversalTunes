@@ -1,31 +1,81 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Universal Tunes";
+    Layout = null;
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!DOCTYPE html>
+<html ng-app="app" ng-controller="IndexController" ng-init="initHome(@ViewBag.Authenticated,'@ViewBag.UserName')">
+<head>
+    <meta name="viewport" content="initial-scale=1">
+    <base href="~/">
+    <title>@ViewBag.Title</title>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/app")
+    <link href="~/Content/expats.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="navbar navbar-default navbar-static-top " role="navigation" ng-show="applicationReady">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="navbarProperties.isCollapsed = !navbarProperties.isCollapsed">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/#/">Universal Tunes</a>
+                </div>
+
+                    <div class="navbar-collapse collapse " collapse="navbarProperties.isCollapsed">
+                        <ul class="nav navbar-nav leftNavOverride" ng-show="currentUser.loggedIn">
+                            <li class="dropdown" dropdown>
+                                <a class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" href="#">
+                                    <span>Menu</span><b class="caret"></b>
+                                </a>
+                                <ul class="nav navbar-nav navbar-left" ng-show="currentUser.loggedIn"></ul>
+                                <ul class="dropdown-menu" role="menu"></ul>
+                            </li>
+                            <li class="dropdown" dropdown="">
+                                <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">
+                                    <span>Configurations</span><b class="caret"></b>
+                                </a>
+                                <ul class="nav navbar-nav navbar-left" ng-show="currentUser.loggedIn"></ul>
+                                <ul class="dropdown-menu" role="menu">
+
+                                    <li><a href="/#/">User Maintenance</a></li>
+                                    <li><a href="/#/">Role Maintenance</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" ng-show="!currentUser.loggedIn">
+                            <li><a href="/#/login">Login</a></li>
+                            <li><a href="/#/register">Register</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" ng-show="currentUser.loggedIn">
+                            <li><a href="/#/myProfile">Welcome {{currentUser.displayName}}</a></li>
+                            <li><a href="#" ng-click="logout()">Logout</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <toaster-container toaster-options="{'time-out':7000}"></toaster-container>
+        </div>
+
+        <div class="container mainContent">
+            <div ng-view>
+
+            </div>
+        </div>
+
+        <div id="footer" class="center-block">
+            <div class="container mainContent">
+
+            </div>
+        </div>
+</body>
+</html>

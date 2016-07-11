@@ -19,6 +19,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "UniversalTunesMobile", "MOB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversalTunesWeb", "UI\UniversalTunesWeb\UniversalTunesWeb.csproj", "{15CF9799-512A-4126-8C5D-0199196D2E0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Innov8Lib", "LIB\Innov8Lib\Innov8Lib.csproj", "{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -199,6 +201,42 @@ Global
 		{15CF9799-512A-4126-8C5D-0199196D2E0A}.Release|Windows-x64.Build.0 = Release|Any CPU
 		{15CF9799-512A-4126-8C5D-0199196D2E0A}.Release|Windows-x86.ActiveCfg = Release|Any CPU
 		{15CF9799-512A-4126-8C5D-0199196D2E0A}.Release|Windows-x86.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Android.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Android.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|iOS.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|iOS.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows Phone (Universal).Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows Phone 8.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows Phone 8.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-AnyCPU.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-AnyCPU.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-ARM.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-ARM.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-x64.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-x64.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-x86.ActiveCfg = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Debug|Windows-x86.Build.0 = Debug|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Android.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Android.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|iOS.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|iOS.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows Phone (Universal).ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows Phone (Universal).Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows Phone 8.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows Phone 8.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-AnyCPU.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-AnyCPU.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-ARM.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-ARM.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-x64.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-x64.Build.0 = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-x86.ActiveCfg = Release|Any CPU
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}.Release|Windows-x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -208,5 +246,6 @@ Global
 		{DA5B457A-5AED-4F29-907E-CCEB344E4D92} = {71BE0F97-2909-483F-89C1-0ED111478200}
 		{4C032F5D-C220-492B-ABCF-431C6168AE27} = {68B428CC-2995-4BFB-960B-E933508DA50B}
 		{15CF9799-512A-4126-8C5D-0199196D2E0A} = {6B436A34-8EA5-4D78-864E-5F1C1B321053}
+		{0FC1AB07-8D4D-46E0-B1F8-C858FA641307} = {71BE0F97-2909-483F-89C1-0ED111478200}
 	EndGlobalSection
 EndGlobal
