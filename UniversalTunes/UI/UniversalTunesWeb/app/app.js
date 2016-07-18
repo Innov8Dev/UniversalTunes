@@ -1,21 +1,23 @@
-﻿angular.module('app', ['app.core,app.directives', 'app.errorInterceptorService', 'LibService', 'app.Index']);
+﻿angular.module('app', ['app.core', 'app.directives', 'app.errorInterceptorService', 'app.Index', 'app.AccountService', 'app.SecurityService',
+                       , 'app.EnumService','app.Home']);
 angular.module('app.directives', ['app.passwordMatchDirective', 'app.uibDatepickerPopup']);
-angular.module('app.core', ['ui.bootstrap', 'chieffancypants.loadingBar', 'ngMessages', 'textAngular', 'ngSanitize'
-        , 'ui.bootstrap.dateparser', 'textAngular', 'angular-bsModal'])
+angular.module('app.core', ['ui.bootstrap', 'chieffancypants.loadingBar', 'ngMessages'
+        , 'ui.bootstrap.dateparser', 'angular-bsModal', 'ngRoute'])
 
-.config(['$httpProvider', '$provide', '$routeProvider', '$locationProvider', function ($httpProvider, $provide, $routeProvider, $locationProvider) {
+.config(['$httpProvider', '$provide', '$routeProvider', '$locationProvider',
+    function ($httpProvider, $provide, $routeProvider, $locationProvider) {
 
     $routeProvider
     .when('/', {
         templateUrl: 'app/views/home/home.htm',
-        controller: 'Indexcontroller'
+        controller: 'IndexController'
     })
     .when('/home', {
         templateUrl: 'app/views/home/home.htm',
-        controller: 'Indexcontroller'
+        controller: 'IndexController'
     })
     .when('/login', {
-        templateUrl: '~/Views/Account/Login',
+        templateUrl: '/app/views/login.htm',
         //controller: 'LoginController'
     })
    .when('/register', {

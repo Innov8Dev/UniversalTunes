@@ -119,9 +119,9 @@ Global
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Android.Build.0 = Debug|Android
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Android.Deploy.0 = Debug|Android
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Any CPU.ActiveCfg = Debug|Android
-		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.ActiveCfg = Debug|iOS
-		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.Build.0 = Debug|iOS
-		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.Deploy.0 = Debug|iOS
+		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.ActiveCfg = Debug|Android
+		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.Build.0 = Debug|Android
+		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|iOS.Deploy.0 = Debug|Android
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Windows Phone (Universal).ActiveCfg = Debug|Windows Phone (Universal)
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Windows Phone (Universal).Build.0 = Debug|Windows Phone (Universal)
 		{4C032F5D-C220-492B-ABCF-431C6168AE27}.Debug|Windows Phone (Universal).Deploy.0 = Debug|Windows Phone (Universal)

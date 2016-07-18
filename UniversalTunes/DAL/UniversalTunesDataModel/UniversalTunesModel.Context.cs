@@ -31,8 +31,7 @@ namespace UniversalTunesDataModel
         public virtual DbSet<Artist> Artists { get; set; }
         public virtual DbSet<Song> Songs { get; set; }
         public virtual DbSet<PriceType> PriceTypes { get; set; }
-        public virtual DbSet<Privilege> Privileges { get; set; }
-        public virtual DbSet<PrivilegeType> PrivilegeTypes { get; set; }
         public virtual DbSet<UserType> UserTypes { get; set; }
+        public virtual DbSet<Error> Errors { get; set; }
     }
 }

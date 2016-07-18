@@ -6,6 +6,7 @@
     </Key>
     <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
   </EntityType>
   <EntityType Name="AspNetUser">
     <Key>
@@ -28,6 +29,8 @@
     <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
     <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+    <Property Name="UserType" Type="Int32" />
+    <NavigationProperty Name="TypeOfUser" Relationship="UniversalTunesModel.FK_AspNetUsers_UserTypes" FromRole="AspNetUser" ToRole="UserType" />
   </EntityType>
   <Association Name="AspNetUserRoles">
     <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
@@ -40,5 +43,153 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="Albums" EntityType="UniversalTunesModel.Album" />
+    <EntitySet Name="Artists" EntityType="UniversalTunesModel.Artist" />
+    <EntitySet Name="Songs" EntityType="UniversalTunesModel.Song" />
+    <AssociationSet Name="FK_Albums_Artists" Association="UniversalTunesModel.FK_Albums_Artists">
+      <End Role="Artist" EntitySet="Artists" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Songs_Albums" Association="UniversalTunesModel.FK_Songs_Albums">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <EntitySet Name="PriceTypes" EntityType="UniversalTunesModel.PriceType" />
+    <AssociationSet Name="FK_Albums_PriceTypes" Association="UniversalTunesModel.FK_Albums_PriceTypes">
+      <End Role="PriceType" EntitySet="PriceTypes" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Songs_PriceTypes" Association="UniversalTunesModel.FK_Songs_PriceTypes">
+      <End Role="PriceType" EntitySet="PriceTypes" />
+      <End Role="Song" EntitySet="Songs" />
+    </AssociationSet>
+    <EntitySet Name="UserTypes" EntityType="UniversalTunesModel.UserType" />
+    <AssociationSet Name="FK_AspNetUsers_UserTypes" Association="UniversalTunesModel.FK_AspNetUsers_UserTypes">
+      <End Role="UserType" EntitySet="UserTypes" />
+      <End Role="AspNetUser" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <EntitySet Name="Errors" EntityType="UniversalTunesModel.Error" />
   </EntityContainer>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="UId" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UId" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="AlbumArtWork" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="PriceId" Type="Int32" Nullable="false" />
+    <Property Name="ArtistUid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Songs" Relationship="UniversalTunesModel.FK_Songs_Albums" FromRole="Album" ToRole="Song" />
+    <NavigationProperty Name="PriceType" Relationship="UniversalTunesModel.FK_Albums_PriceTypes" FromRole="Album" ToRole="PriceType" />
+  </EntityType>
+  <EntityType Name="Artist">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Albums" Relationship="UniversalTunesModel.FK_Albums_Artists" FromRole="Artist" ToRole="Album" />
+  </EntityType>
+  <EntityType Name="Song">
+    <Key>
+      <PropertyRef Name="Uid" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Length" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="AlbumUid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="PriceId" Type="Int32" Nullable="false" />
+    <Property Name="SongArtWork" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PriceType" Relationship="UniversalTunesModel.FK_Songs_PriceTypes" FromRole="Song" ToRole="PriceType" />
+  </EntityType>
+  <Association Name="FK_Albums_Artists">
+    <End Type="UniversalTunesModel.Artist" Role="Artist" Multiplicity="1" />
+    <End Type="UniversalTunesModel.Album" Role="Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Artist">
+        <PropertyRef Name="Uid" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="ArtistUid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Songs_Albums">
+    <End Type="UniversalTunesModel.Album" Role="Album" Multiplicity="1" />
+    <End Type="UniversalTunesModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="UId" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="AlbumUid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="PriceType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Albums_PriceTypes">
+    <End Type="UniversalTunesModel.PriceType" Role="PriceType" Multiplicity="1" />
+    <End Type="UniversalTunesModel.Album" Role="Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PriceType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="PriceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Songs_PriceTypes">
+    <End Type="UniversalTunesModel.PriceType" Role="PriceType" Multiplicity="1" />
+    <End Type="UniversalTunesModel.Song" Role="Song" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PriceType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Song">
+        <PropertyRef Name="PriceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Uid" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_AspNetUsers_UserTypes">
+    <End Type="UniversalTunesModel.UserType" Role="UserType" Multiplicity="0..1" />
+    <End Type="UniversalTunesModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUser">
+        <PropertyRef Name="UserType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Error">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExceptionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ErrorDate" Type="DateTime" Precision="3" />
+  </EntityType>
 </Schema>

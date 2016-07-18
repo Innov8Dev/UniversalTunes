@@ -4,7 +4,7 @@
 }
 
 <!DOCTYPE html>
-<html ng-app="app" ng-controller="IndexController" ng-init="initHome(@ViewBag.Authenticated,'@ViewBag.UserName')">
+<html ng-app="app" ng-controller="IndexController as IndexCtrl" ng-init="IndexCtrl.initHome(@ViewBag.Authenticated,'@ViewBag.UserName')">
 <head>
     <meta name="viewport" content="initial-scale=1">
     <base href="~/">
@@ -16,66 +16,65 @@
 </head>
 <body>
 
-    <div class="navbar navbar-default navbar-static-top " role="navigation" ng-show="applicationReady">
+    <div class="navbar navbar-default navbar-static-top " role="navigation" ng-show="IndexCtrl.applicationReady">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" ng-click="navbarProperties.isCollapsed = !navbarProperties.isCollapsed">
+                <button type="button" class="navbar-toggle" ng-click="IndexCtrl.navbarProperties.isCollapsed = !IndexCtrl.navbarProperties.isCollapsed">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="/#/">Universal Tunes</a>
-                </div>
+            </div>
 
-                    <div class="navbar-collapse collapse " collapse="navbarProperties.isCollapsed">
-                        <ul class="nav navbar-nav leftNavOverride" ng-show="currentUser.loggedIn">
-                            <li class="dropdown" dropdown>
-                                <a class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" href="#">
-                                    <span>Menu</span><b class="caret"></b>
-                                </a>
-                                <ul class="nav navbar-nav navbar-left" ng-show="currentUser.loggedIn"></ul>
-                                <ul class="dropdown-menu" role="menu"></ul>
-                            </li>
-                            <li class="dropdown" dropdown="">
-                                <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">
-                                    <span>Configurations</span><b class="caret"></b>
-                                </a>
-                                <ul class="nav navbar-nav navbar-left" ng-show="currentUser.loggedIn"></ul>
-                                <ul class="dropdown-menu" role="menu">
+            <div class="navbar-collapse collapse " collapse="navbarProperties.isCollapsed">
+                <ul class="nav navbar-nav leftNavOverride" ng-show="IndexCtrl.currentUser.loggedIn">
+                    <li class="dropdown" dropdown>
+                        <a class="dropdown-toggle" dropdown-toggle data-toggle="dropdown" href="#">
+                            <span>Menu</span><b class="caret"></b>
+                        </a>
+                        <ul class="nav navbar-nav navbar-left" ng-show="IndexCtrl.currentUser.loggedIn"></ul>
+                        <ul class="dropdown-menu" role="menu"></ul>
+                    </li>
+                    <li class="dropdown" dropdown="">
+                        <a href="#" class="dropdown-toggle" dropdown-toggle="" data-toggle="dropdown">
+                            <span>Configurations</span><b class="caret"></b>
+                        </a>
+                        <ul class="nav navbar-nav navbar-left" ng-show="IndexCtrl.currentUser.loggedIn"></ul>
+                        <ul class="dropdown-menu" role="menu">
 
-                                    <li><a href="/#/">User Maintenance</a></li>
-                                    <li><a href="/#/">Role Maintenance</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="/#/">User Maintenance</a></li>
+                            <li><a href="/#/">Role Maintenance</a></li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right" ng-show="!currentUser.loggedIn">
-                            <li><a href="/#/login">Login</a></li>
-                            <li><a href="/#/register">Register</a></li>
-                        </ul>
-                        <ul class="nav navbar-nav navbar-right" ng-show="currentUser.loggedIn">
-                            <li><a href="/#/myProfile">Welcome {{currentUser.displayName}}</a></li>
-                            <li><a href="#" ng-click="logout()">Logout</a></li>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="!IndexCtrl.currentUser.loggedIn">
+                    <li><a href="/#/login">Login</a></li>
+                    <li><a href="/#/register">Register</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" ng-show="IndexCtrl.currentUser.loggedIn">
+                    <li><a href="/#/myProfile">Welcome {{IndexCtrl.currentUser.displayName}}</a></li>
+                    <li><a href="#" ng-click="IndexCtrl.logout()">Logout</a></li>
 
-                        </ul>
-                    </div>
-                </div>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <div class="col-sm-3">
-            <toaster-container toaster-options="{'time-out':7000}"></toaster-container>
+    <div class="col-sm-3">
+        <toaster-container toaster-options="{'time-out':7000}"></toaster-container>
+    </div>
+
+    <div class="container mainContent">
+        <div ng-view>
+
         </div>
+    </div>
 
+    <div id="footer" class="center-block">
         <div class="container mainContent">
-            <div ng-view>
 
-            </div>
         </div>
-
-        <div id="footer" class="center-block">
-            <div class="container mainContent">
-
-            </div>
-        </div>
+    </div>
 </body>
 </html>

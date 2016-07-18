@@ -15,7 +15,10 @@ namespace UniversalTunesWeb
              "~/Content/site.css",
              "~/Content/loading-bar.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/AngularApp")
+            bundles.Add(new Bundle("~/bundles/BootstrapJS")
+    .IncludeDirectory("~/Scripts", "*.js", true));
+
+            bundles.Add(new ScriptBundle("~/bundles/app")
                 .Include("~/Scripts/angular.js")
                 .Include("~/Scripts/angular-route.js")
                 .Include("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
@@ -27,9 +30,11 @@ namespace UniversalTunesWeb
                 .Include("~/Scripts/lib/loading-bar.js")
 
                 .Include("~/app/app.js")
-                .IncludeDirectory("~/app/Services", "*.js")
-                // .IncludeDirectory("~/App/Directives", "*.js")
-                .IncludeDirectory("~/app/Controllers", "*.js")
+                .IncludeDirectory("~/app/services", "*.js")
+                 .IncludeDirectory("~/app/directives", "*.js")
+                .IncludeDirectory("~/app/controllers", "*.js")
+                                .IncludeDirectory("~/app/lib", "*.js", true)
+
                 );
 
             BundleTable.EnableOptimizations = !Debugger.IsAttached;

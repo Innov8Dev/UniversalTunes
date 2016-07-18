@@ -1,0 +1,28 @@
+<ion-view view-title="My Coupons">
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh..."
+                       on-refresh="refresh()">
+        </ion-refresher>
+        <div class="card" ng-repeat="i in couponGrid">
+            <div class="item item-divider icon-left 
+                 {{i.redeemed ? 'item-balanced ion-ios-checkmark-outline' : i.expired ? 'item-assertive ion-ios-close-outline' : 'item-positive ion-ios-circle-outline'}}">
+                {{i.productCategoryName}}
+            </div>
+            <div class="item item-text-wrap">
+                <div class="item item-thumbnail-left" ng-click="showCouponDetails(i)">
+                    <img src="{{ServerLocation}}{{i.imageUrl}}">
+                    <p>{{i.bundleName}}</p>
+                    <h2><b>{{i.couponCode}}</b>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div ng-show="noRecordsFound">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    You dont have any coupons yet...
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

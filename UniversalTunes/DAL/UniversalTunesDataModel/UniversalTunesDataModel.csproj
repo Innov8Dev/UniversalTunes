@@ -63,13 +63,10 @@
     <Compile Include="AspNetUser.cs">
       <DependentUpon>UniversalTunesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Error.cs">
+      <DependentUpon>UniversalTunesModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="PriceType.cs">
-      <DependentUpon>UniversalTunesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Privilege.cs">
-      <DependentUpon>UniversalTunesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="PrivilegeType.cs">
       <DependentUpon>UniversalTunesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

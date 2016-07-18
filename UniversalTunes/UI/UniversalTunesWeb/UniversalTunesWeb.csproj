@@ -207,6 +207,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AspNetRolesController.cs" />
+    <Compile Include="Controllers\EnumsController.cs" />
+    <Compile Include="Controllers\ErrorsController.cs" />
+    <Compile Include="Controllers\Filters\AllowCrossDomain.cs" />
+    <Compile Include="Controllers\Filters\NoCacheAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -215,6 +220,10 @@
     <Compile Include="Migrations\201607061445239_FirstMigration.cs" />
     <Compile Include="Migrations\201607061445239_FirstMigration.Designer.cs">
       <DependentUpon>201607061445239_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607141456099_SecondMigration.cs" />
+    <Compile Include="Migrations\201607141456099_SecondMigration.Designer.cs">
+      <DependentUpon>201607141456099_SecondMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -225,8 +234,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\IndexController.js" />
+    <Content Include="app\directives\DatePicker.js" />
+    <Content Include="app\directives\KeyPressEnterDirective.js" />
+    <Content Include="app\directives\KeyPressEscapeDirective.js" />
+    <Content Include="app\directives\PasswordMatch.js" />
+    <Content Include="app\directives\RequiredAnyDirective.js" />
+    <Content Include="app\services\AccountService.js" />
+    <Content Include="app\services\EnumsService.js" />
+    <Content Include="app\services\errorInterceptorService.js" />
     <Content Include="app\services\LibService.js" />
+    <Content Include="app\services\SecurityService.js" />
+    <Content Include="app\views\account\ForgotPasswordView.htm" />
+    <Content Include="app\views\account\login.htm" />
+    <Content Include="app\views\account\PasswordView.htm" />
+    <Content Include="app\views\account\Profile.htm" />
+    <Content Include="app\views\account\Register.htm" />
     <Content Include="app\views\home\home.htm" />
     <Content Include="Content\app-theme.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1955,34 +1979,14 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\_references.js.orig" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
+    <Folder Include="app\lib\" />
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\common\language\es-ES\" />
     <Folder Include="Scripts\common\language\fi-FI\" />
@@ -2006,6 +2010,22 @@
     <EmbeddedResource Include="Migrations\201607061445239_FirstMigration.resx">
       <DependentUpon>201607061445239_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607141456099_SecondMigration.resx">
+      <DependentUpon>201607141456099_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\UniversalTunesDataModel\UniversalTunesDataModel.csproj">
+      <Project>{079fa653-4806-4bb1-a0a7-426f54d31ffd}</Project>
+      <Name>UniversalTunesDataModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\LIB\Innov8Lib\Innov8Lib.csproj">
+      <Project>{0FC1AB07-8D4D-46E0-B1F8-C858FA641307}</Project>
+      <Name>Innov8Lib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

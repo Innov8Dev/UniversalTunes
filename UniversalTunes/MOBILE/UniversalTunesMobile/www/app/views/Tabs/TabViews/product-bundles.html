@@ -1,0 +1,27 @@
+<ion-view view-title="Bundles">
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh..."
+                       on-refresh="refresh()">
+        </ion-refresher>
+        <div class="list card" ng-repeat="i in bundleGrid">
+            <div class="item {{i.availableCoupons > 0 ? 'item-balanced' : 'item-dark'}} ">
+                {{i.name}}
+                <div style="font-size: 12px">{{i.description}}</div>
+            </div>
+            <a class="item item-image" href="#/tab/product/{{i.productId}}/bundle/{{i.id}}">
+                <img src="{{ServerLocation}}{{i.imageUrl}}">
+            </a>
+            <a class="item item-icon-left royal" href="#/tab/product/{{i.productId}}/bundle/{{i.id}}">
+                <i class="icon ion-ios-settings"></i>
+                Bundle Details
+            </a>
+        </div>
+        <div ng-show="noRecordsFound">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    No bundles could be found for this Product Category
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

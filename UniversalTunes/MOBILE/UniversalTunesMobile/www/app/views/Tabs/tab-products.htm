@@ -1,0 +1,32 @@
+<ion-view view-title="Products">
+    <ion-content class="padding">
+        <ion-refresher pulling-text="Pull to refresh..."
+                       on-refresh="refresh()">
+        </ion-refresher>
+        <div class="list card" ng-repeat="i in productGrid">
+            <div class="item 
+                 {{i.hasCoupons ? 'item-balanced' : i.totalBundles > 0 ? 'item-dark' : 'item-assertive'}} 
+                 item-divider">
+                {{i.name}}<br/>
+                <div style="font-size: 12px">{{i.description}}</div>
+            </div>
+            <div class="item item-image">
+                <a href="#/tab/product/{{i.id}}">
+                    <img src="{{ServerLocation}}{{i.imageUrl}}">
+                </a>
+            </div>
+            <div class="item
+                 {{i.hasCoupons ? 'item-balanced' : i.totalBundles > 0 ? 'item-dark' : 'item-assertive'}}
+                 item-divider">
+                <div style="font-size: 12px">(Coupons {{i.hasCoupons ? 'Available' : 'not available'}})</div>
+            </div>
+        </div>
+        <div ng-show="noRecordsFound">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    Warning: No Products was found...
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

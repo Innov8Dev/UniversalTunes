@@ -1,0 +1,32 @@
+<ion-view view-title="Bundle Detail">
+    <ion-content class="padding">
+        <div class="list">
+            <div class="item item-divider">
+                Bundle Details
+            </div>
+            <div class="item item-image">
+                <img src="{{ServerLocation}}{{viewModel.imageUrl}}">
+            </div>
+            <div class="item">
+                <b>Bundle Name</b> : {{viewModel.name}}
+            </div>
+            <div class="item">
+                <b>Description</b> : {{viewModel.description}}
+            </div>
+            <div class="item">
+                <b>Available Coupons</b> : <b>{{viewModel.availableCoupons}}</b>
+            </div>
+        </div>
+        <div class="card">
+            <div class="item">
+                <button class="button button-block 
+                        {{viewModel.availableCoupons > 0 ? 'button-positive' : 'button-assertive'}}
+                        icon-left ion-ios-pricetag"
+                        ng-click="viewModel.availableCoupons > 0 ? requestCoupon(viewModel.id) : 
+                        showAlert('No coupons','There are no available coupons')">
+                    Request a Coupon
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

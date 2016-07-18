@@ -1,9 +1,9 @@
 ﻿angular.module('app.Index', ['angularUtils.directives.dirPagination', 'angular-toArrayFilter'])
 .controller('IndexController', IndexController);
 
-IndexController.$inject = ['$http','SecurityService'];
+IndexController.$inject = ['$rootScope', 'SecurityService', 'EnumService'];
 
-function IndexController($http, SecurityService) {
+function IndexController($rootScope, SecurityService, EnumService) {
 
     //class variables.
     var vm = this;
@@ -17,12 +17,74 @@ function IndexController($http, SecurityService) {
 
     //class methods
     vm.goHome = goHome;
+    vm.initHome = initHome;
+    vm.isAllowed = isAllowed;
+    vm.userHasPrivileges = userHasPrivileges;
 
     function goHome() {
         vm.user = SecurityService.currentUser;
 
         if (vm.user.userType === 'Consumer') {
-            $location.path=('/')
+            $location.path = ('/userdashboard');
+        } else {
+            $location.path('/home');
         }
     }
+
+    function initHome(loggedIn, currentUser) {
+        if (loggedIn) {
+            AccountService.currentUser().then(
+             function (result) {
+                 SecurityService.login(result.data.id, result.data.userName, result.data.displayName, result.data.allowedPrivileges, result.data.userTypeString);
+
+                 vm.userTypes = EnumService.userTypes();
+
+                 if (result.data.userTypeString == 'Consumer')
+                     $location.path('/userdashboard');
+                 else
+                     $location.path('/home');
+             },
+
+             function (error) {
+                 vm.hasError = true;
+                 vm.errorMessage = error.data.message;
+                 SecurityService.logout();
+             });
+        }
+    }
+
+    function logout() {
+        AccountService.singOut().then(function (data) {
+            vm.currentUser.loggedIn = false;
+
+            SecurityService.logout();
+            $location.path('/login');
+
+        }, function (error) {
+            vm.currentUser.loggedIn = false;
+            vm.$apply();
+
+            SecurityService.logout();
+            $location.path('/login');
+        });
+    }
+
+    $rootScope.$on(SecurityService.scopeUpdateEvent, function (event, currentUser) {
+        vm.currentUser = SecurityService.currentUser;
+    });
+
+
+    $rootScope.$on(EnumService.enumsLoadedEvent, function (event) {
+        vm.applicationReady = true;
+
+    });
+
+    function isAllowed(privilegeType) {
+        return SecurityService.isAllowed(privilegeType);
+    }
+
+    function userHasPrivileges() {
+        return SecurityService.userHasPrivileges();
+    }
+
 }

@@ -1,0 +1,60 @@
+<ion-view view-title="Coupon Detail">
+    <ion-content class="padding">
+        <div class="list">
+            <div class="card">
+                <div class="item item-image">
+                    <img src="{{ServerLocation}}{{viewModel.imageUrl}}">
+                </div>
+                <div class="item">
+                    <center><b>{{viewModel.couponCode}}</b></center>
+                </div>
+                <div class="item">
+                    <b>Valid Until</b> : {{viewModel.validUntil}}
+                </div>
+            </div>
+            <div class="item item-divider">
+                Coupon Information
+            </div>
+            <div class="item">
+                <b>Product Category</b> : {{viewModel.productCategoryName}}
+            </div>
+            <div class="item">
+                <b>Bundle</b> : {{viewModel.bundleName}}
+            </div>
+            <div class="item">
+                <b>Coupon Description</b> : {{viewModel.couponDescription}}
+            </div>
+            <div class="item">
+                <b>Date Generated</b> : {{viewModel.dateGenerated}}
+            </div>
+            <div class="item item-toggle">
+                <b>Redeemed</b>
+                <label class="toggle toggle-balanced">
+                    <input type="checkbox" disabled ng-model="viewModel.redeemed">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-toggle">
+                <b>Expired</b>
+                <label class="toggle toggle-assertive">
+                    <input type="checkbox" disabled ng-model="viewModel.expired">
+                    <div class="track">
+                        <div class="handle"></div>
+                    </div>
+                </label>
+            </div>
+            <div class="item item-divider">
+                Store Information
+            </div>
+            <div class="item">
+                <b>Store Name</b> : {{viewModel.storeName}}
+            </div>
+            <div class="item">
+                <b>Store User Name</b> : {{viewModel.storeUser}}
+            </div>
+        </div>
+
+    </ion-content>
+</ion-view>

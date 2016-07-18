@@ -61,3 +61,5 @@ C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\Univers
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\System.Web.WebPages.xml
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\Innov8Lib.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\LIB\APIs\bin\Debug\Innov8Lib.pdb

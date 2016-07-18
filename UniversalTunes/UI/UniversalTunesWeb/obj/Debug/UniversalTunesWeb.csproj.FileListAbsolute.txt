@@ -88,3 +88,8 @@ C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\Univers
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.dll
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.pdb
 C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.csprojResolveAssemblyReference.cache
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\UniversalTunesDataModel.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\UniversalTunesDataModel.pdb
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\obj\Debug\UniversalTunesWeb.Migrations.SecondMigration.resources
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\Innov8Lib.dll
+C:\Users\TSO\Documents\Visual Studio 2015\Projects\Innov8\UniversalTunes\UniversalTunes\UI\UniversalTunesWeb\bin\Innov8Lib.pdb

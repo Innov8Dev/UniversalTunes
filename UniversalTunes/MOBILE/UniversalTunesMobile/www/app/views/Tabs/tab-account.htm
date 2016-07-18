@@ -1,0 +1,32 @@
+<ion-view view-title="Account">
+    <ion-content>
+        <ion-list>
+            <ion-toggle ng-model="DeviceSystem._isWebView" ng-disabled="true">
+                Web View
+            </ion-toggle>
+            <ion-toggle ng-model="DeviceSystem._isIPad" ng-disabled="true">
+                IPad Device?
+            </ion-toggle>
+            <ion-toggle ng-model="DeviceSystem._isIOS" ng-disabled="true">
+                IOS Device?
+            </ion-toggle>
+            <ion-toggle ng-model="DeviceSystem._isAndroid" ng-disabled="true">
+                Android Device?
+            </ion-toggle>
+            <ion-toggle ng-model="DeviceSystem._isWindowsPhone" ng-disabled="true">
+                Windows Device?
+            </ion-toggle>
+            <ion-item>
+                Current Platform: {{DeviceSystem._currentPlatform}}
+            </ion-item>
+            <ion-item>
+                Current Platform Version: {{DeviceSystem._currentPlatformVersion}}
+            </ion-item>
+            <ion-item>
+                <button class="button button-block button-assertive" ng-click="logout()">
+                    Logout
+                </button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

@@ -12,7 +12,7 @@ namespace UniversalTunesWeb.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(UniversalTunesWeb.Models.ApplicationDbContext context)

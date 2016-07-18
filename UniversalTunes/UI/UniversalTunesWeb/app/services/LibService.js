@@ -2,7 +2,7 @@
 
 LibService.$inject = ['$http'];
 
-function LivService($http) {
+function LibService($http) {
     var vm = this;
 
     vm.interceptorForHandlingErrors = interceptorForHandlingErrors;
@@ -11,7 +11,7 @@ function LivService($http) {
 
     function interceptorForHandlingErrors($http, response) {
         console.log(response);
-        $http.post('/api/Errors/', response);
+        $http.post('/api/Errors/error', response);
     }
 
     function removeArrayItem(array, itemToRemove) {

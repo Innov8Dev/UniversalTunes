@@ -43,10 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Emails.cs" />
+    <Compile Include="ErrorLog.cs" />
     <Compile Include="IO.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="NameSplitting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\DAL\UniversalTunesDataModel\UniversalTunesDataModel.csproj">
+      <Project>{079FA653-4806-4BB1-A0A7-426F54D31FFD}</Project>
+      <Name>UniversalTunesDataModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
