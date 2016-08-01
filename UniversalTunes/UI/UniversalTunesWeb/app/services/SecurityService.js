@@ -31,7 +31,7 @@ function SecurityService($rootScope, EnumService) {
         vm.currentUser.userType = userType;
         vm.currentUser.loggedIn = true;
 
-        $rootScope.$emit(_scopeUpdateEvent, vm.currentUser);
+        $rootScope.$emit(vm.scopeUpdateEvent, vm.currentUser);
 
     };
 
@@ -50,7 +50,7 @@ function SecurityService($rootScope, EnumService) {
         if (!vm.currentUser || vm.currentUser.userType == null || vm.currentUser.userType == "")
             return false;
 
-        if (!vm.currentUser.allowedPrivileges.length > 0)
+        if (vm.currentUser.allowedPrivileges !== 2)
             return false;
 
         return true;
@@ -60,7 +60,7 @@ function SecurityService($rootScope, EnumService) {
         if (!userHasPrivileges())
             return false;
 
-        vm.allValues = EnumService.securityTypes;
+        vm.allValues = EnumService.securityType;
         var myEnum = -1;
         for (x = 0; x < vm.allValues.length; x++) {
             if (vm.allValues[x].Name == role) {
