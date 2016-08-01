@@ -1,9 +1,9 @@
 ﻿angular.module('app.Index', ['angularUtils.directives.dirPagination', 'angular-toArrayFilter'])
 .controller('IndexController', IndexController);
 
-IndexController.$inject = ['$rootScope', 'SecurityService', 'EnumService'];
+IndexController.$inject = ['$rootScope', 'SecurityService', 'EnumService', '$location', 'AccountService'];
 
-function IndexController($rootScope, SecurityService, EnumService) {
+function IndexController($rootScope, SecurityService, EnumService, $location, AccountService) {
 
     //class variables.
     var vm = this;
@@ -24,7 +24,7 @@ function IndexController($rootScope, SecurityService, EnumService) {
     function goHome() {
         vm.user = SecurityService.currentUser;
 
-        if (vm.user.userType === 'Consumer') {
+        if (vm.user.userType === 2) {
             $location.path = ('/userdashboard');
         } else {
             $location.path('/home');

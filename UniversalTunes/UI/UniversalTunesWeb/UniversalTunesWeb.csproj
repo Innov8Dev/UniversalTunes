@@ -207,6 +207,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\AspNetRolesController.cs" />
     <Compile Include="Controllers\EnumsController.cs" />
     <Compile Include="Controllers\ErrorsController.cs" />
@@ -236,6 +237,7 @@
     <Content Include="app\app.js" />
     <Content Include="app\controllers\HomeController.js" />
     <Content Include="app\controllers\IndexController.js" />
+    <Content Include="app\controllers\LoginController.js" />
     <Content Include="app\directives\DatePicker.js" />
     <Content Include="app\directives\KeyPressEnterDirective.js" />
     <Content Include="app\directives\KeyPressEscapeDirective.js" />
@@ -246,11 +248,11 @@
     <Content Include="app\services\errorInterceptorService.js" />
     <Content Include="app\services\LibService.js" />
     <Content Include="app\services\SecurityService.js" />
-    <Content Include="app\views\account\ForgotPasswordView.htm" />
+    <Content Include="app\views\account\forgotPasswordView.htm" />
     <Content Include="app\views\account\login.htm" />
     <Content Include="app\views\account\PasswordView.htm" />
     <Content Include="app\views\account\Profile.htm" />
-    <Content Include="app\views\account\Register.htm" />
+    <Content Include="app\views\account\register.htm" />
     <Content Include="app\views\home\home.htm" />
     <Content Include="Content\app-theme.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -1966,6 +1968,7 @@
     <Content Include="Scripts\uniform\jquery.uniform.js" />
     <Content Include="Scripts\uniform\jquery.uniform.min.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1979,9 +1982,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Scripts\_references.js.orig" />
     <Content Include="Scripts\version.json" />
   </ItemGroup>

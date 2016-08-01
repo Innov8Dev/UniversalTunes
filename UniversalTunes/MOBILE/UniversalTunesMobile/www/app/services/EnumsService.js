@@ -1,6 +1,6 @@
 ﻿angular.module("AmaCouponApp")
     .factory(
-        "EnumsService", [
+        "EnumService", [
             "$http", "$rootScope", "DeviceInformation",
             function($http, $rootScope, DeviceInformation) {
 

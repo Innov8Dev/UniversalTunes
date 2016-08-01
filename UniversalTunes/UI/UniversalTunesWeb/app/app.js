@@ -1,5 +1,5 @@
 ﻿angular.module('app', ['app.core', 'app.directives', 'app.errorInterceptorService', 'app.Index', 'app.AccountService', 'app.SecurityService',
-                       , 'app.EnumService','app.Home']);
+                       , 'app.EnumService','app.Home','app.Login']);
 angular.module('app.directives', ['app.passwordMatchDirective', 'app.uibDatepickerPopup']);
 angular.module('app.core', ['ui.bootstrap', 'chieffancypants.loadingBar', 'ngMessages'
         , 'ui.bootstrap.dateparser', 'angular-bsModal', 'ngRoute'])
@@ -10,19 +10,19 @@ angular.module('app.core', ['ui.bootstrap', 'chieffancypants.loadingBar', 'ngMes
     $routeProvider
     .when('/', {
         templateUrl: 'app/views/home/home.htm',
-        controller: 'IndexController'
+        controller: 'HomeController'
     })
     .when('/home', {
         templateUrl: 'app/views/home/home.htm',
-        controller: 'IndexController'
+        controller: 'HomeController'
     })
     .when('/login', {
-        templateUrl: '/app/views/login.htm',
-        //controller: 'LoginController'
+        templateUrl: '/app/views/account/login.htm',
+        controller: 'LoginController'
     })
    .when('/register', {
-        templateUrl: 'app/Views/Account/Register',
-        //controller: 'LoginController'
+       templateUrl: 'app/views/account/register.htm',
+        controller: 'LoginController'
     })
    .otherwise('/home', {
        redirectTo: '/'

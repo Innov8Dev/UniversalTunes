@@ -1,9 +1,9 @@
 ﻿angular.module('app.Index', [])
 .controller('IndexController', IndexController);
 
-IndexController.$inject = ['$rootScope', '$location', 'SecurityService', 'AccountService', 'EnumsService', 'DerviceInformation'];
+IndexController.$inject = ['$rootScope', '$location', 'SecurityService', 'AccountService', 'EnumService', 'DerviceInformation'];
 
-function IndexController($rootScope, $location, SecurityService, AccountService, EnumsService, DeviceInformation) {
+function IndexController($rootScope, $location, SecurityService, AccountService, EnumService, DeviceInformation) {
 
     var vm = this;
 
@@ -47,7 +47,7 @@ function IndexController($rootScope, $location, SecurityService, AccountService,
         vm.currentUser = SecurityService.currentUser;
     });
 
-    $rootScope.$on(EnumsService.enumsLoadedEvent, function (event) {
+    $rootScope.$on(EnumService.enumsLoadedEvent, function (event) {
         vm.applicationReady = true;
     });
 

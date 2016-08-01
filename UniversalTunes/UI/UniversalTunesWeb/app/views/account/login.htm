@@ -1,10 +1,10 @@
-﻿<form class="form-horizontal" name="loginForm">
+﻿<form class="form-horizontal" name="LoginCtrl.loginForm" ng-controller="LoginController as LoginCtrl">
     <fieldset>
         <legend>Login</legend>
         <div class="form-group" show-errors>
             <label for="userName" class="col-sm-3 control-label">User Name</label>
             <div class="col-sm-9">
-                <input type="text" name="userName" ng-model="viewModel.userName" class="form-control" ng-required="true" />
+                <input type="text" name="userName" ng-model="LoginCtrl.login.userName" class="form-control" ng-required="true" />
                 <span class="help-block" ng-show="loginForm.emailAddress.$invalid">User Name Required</span>
             </div>
         </div>
@@ -12,29 +12,29 @@
         <div class="form-group" show-errors>
             <label for="password" class="col-sm-3 control-label">Password</label>
             <div class="col-sm-9">
-                <input type="password" name="password" ng-model="viewModel.password" class="form-control" ng-required="true" />
+                <input type="password" name="password" ng-model="LoginCtrl.login.password" class="form-control" ng-required="true" />
             </div>
         </div>
 
         <div class="form-group">
             <label for="rememberMe" class="col-sm-3 control-label">Remember Me</label>
             <div class="col-sm-9">
-                <input type="checkbox" name="rememberMe" ng-model="viewModel.rememberMe" />
+                <input type="checkbox" name="rememberMe" ng-model="LoginCtrl.login.rememberMe" />
             </div>
         </div>
     </fieldset>
 
     <div class="col-sm-offset-5 col-sm-9">
-        <input type="submit" class="btn btn-primary" value="Login" ng-click="submitForm()" />
+        <input type="submit" class="btn btn-primary" value="Login" ng-click="LoginCtrl.submitForm()" />
     </div>
     <div class="col-sm-offset-5">
-        <a href="#" ng-click="forgotPassword()">Forgot Password</a>
+        <a href="#" ng-click="LoginCtrl.forgotPassword()">Forgot Password</a>
     </div>
     <div class="col-sm-12">
-        <div class="alert alert-success" ng-if="handleSuccess">{{successMessage}}</div>
+        <div class="alert alert-success" ng-if="LoginCtrl.handleSuccess">{{LoginCtrl.successMessage}}</div>
     </div>
     <div class="col-sm-12">
-        <div class="alert alert-danger" ng-if="hasError">{{errorMessage}}</div>
+        <div class="alert alert-danger" ng-if="LoginCtrl.hasError">{{LoginCtrl.errorMessage}}</div>
     </div>
 
 </form>

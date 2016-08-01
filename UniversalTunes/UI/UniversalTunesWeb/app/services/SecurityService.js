@@ -13,7 +13,7 @@ function SecurityService($rootScope, EnumService) {
         id: 0,
         userName: '',
         displayName: '',
-        allowedPrivileges: null,
+        allowedPrivileges: 0,
         userType: ''
     };
 
@@ -33,7 +33,7 @@ function SecurityService($rootScope, EnumService) {
 
         $rootScope.$emit(_scopeUpdateEvent, vm.currentUser);
 
-    }
+    };
 
     function logout() {
         vm.currentUser.id = 0;
@@ -41,12 +41,13 @@ function SecurityService($rootScope, EnumService) {
         vm.currentUser.displayName = '';
         vm.constructor.isLoggedIn = false;
 
-        $rootScope.$emit(vm.scopeUpdateEvent, vm.currentUser);
 
-    }
+    };
+
+    $rootScope.$emit(vm.scopeUpdateEvent, vm.currentUser);
 
     function userHasPrivileges() {
-        if (!vm.currentUser || vm.currentUser.allowedPrivileges == null)
+        if (!vm.currentUser || vm.currentUser.userType == null || vm.currentUser.userType == "")
             return false;
 
         if (!vm.currentUser.allowedPrivileges.length > 0)
@@ -55,15 +56,15 @@ function SecurityService($rootScope, EnumService) {
         return true;
     }
 
-    function isAllowed(privilegeType) {
+    function isAllowed(role) {
         if (!userHasPrivileges())
             return false;
 
-        vm.allValues = EnumsService.securityTypes();
+        vm.allValues = EnumService.securityTypes;
         var myEnum = -1;
-        for (x = 0; x < allValues.length; x++) {
-            if (allValues[x].name == privilegeType) {
-                myEnum = allValues[x].ordinalValue;
+        for (x = 0; x < vm.allValues.length; x++) {
+            if (vm.allValues[x].Name == role) {
+                myEnum = vm.allValues[x].ordinalValue;
                 break;
             }
         }
@@ -71,7 +72,7 @@ function SecurityService($rootScope, EnumService) {
         if (myEnum < 0)
             return false;
 
-        var result = vm.currentUser.allowedPrivileges.indexOf(myEnum) > -1;
+        var result = vm.currentUser.userType;//.indexOf(myEnum) > -1;
         return result;
     }
 }

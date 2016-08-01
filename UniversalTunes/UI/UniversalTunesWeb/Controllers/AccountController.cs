@@ -13,6 +13,7 @@ using UniversalTunesWeb.Models;
 namespace UniversalTunesWeb.Controllers
 {
     [Authorize]
+    [RoutePrefix("api/Accounts")]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -64,9 +65,8 @@ namespace UniversalTunesWeb.Controllers
         //
         // POST: /Account/Login
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        [Route("Login")]
+        public async Task<ActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -79,11 +79,12 @@ namespace UniversalTunesWeb.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return View();
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
+                    //return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");

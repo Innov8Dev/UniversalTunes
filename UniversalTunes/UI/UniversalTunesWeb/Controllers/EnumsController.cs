@@ -19,11 +19,11 @@ namespace UniversalTunesWeb.Controllers
         {
             try
             {
-                return db.UserTypes.OrderBy(x=>x.Name).ToList();
+                return db.UserTypes.OrderBy(x => x.Name).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw;
+                throw new HttpResponseException(System.Net.HttpStatusCode.BadRequest);
             }
         }
 
@@ -35,9 +35,9 @@ namespace UniversalTunesWeb.Controllers
             {
                 return db.PriceTypes.OrderBy(x => x.Price).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw;
+                throw new HttpResponseException(System.Net.HttpStatusCode.BadRequest);
             }
         }
     }
