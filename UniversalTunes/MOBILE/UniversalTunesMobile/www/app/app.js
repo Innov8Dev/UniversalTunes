@@ -9,7 +9,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module("app",
     ['ionic', 'validation.match', 'ngStorage', 'ngRoute', 'app.Index', 'app.Account', 'app.AccountService', 'app.SecurityService'
-    ]
+      , 'app.DeviceInformation', 'app.errorInterceptorService', 'app.Dashboard']
 ).run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -39,15 +39,15 @@ angular.module("app",
             abstract: true,
             templateUrl: "app/views/security.htm"
         })
-        //.state("security.login", {
-        //    url: "/login",
-        //    views: {
-        //        'security-login': {
-        //            templateUrl: "app/Views/login.html",
-        //            controller: "LoginController"
-        //        }
-        //    }
-        //})
+        .state("security.login", {
+            url: "/login",
+            views: {
+                'security-login': {
+                    templateUrl: "app/Views/login.htm",
+                    controller: "LoginController"
+                }
+            }
+        })
         //.state("security.register", {
         //    url: "/register",
         //    views: {

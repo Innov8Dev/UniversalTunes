@@ -58,7 +58,7 @@ function AccountService($http, $q, SecurityService, DeviceInformation) {
                     deferred.reject(err);
                 });
         }).error(function (err, status) {
-            _logout();
+            logout();
             deferred.reject(err.error_description);
         });
         return deferred.promise;
@@ -76,7 +76,7 @@ function AccountService($http, $q, SecurityService, DeviceInformation) {
                     deferred.reject(err);
                 });
         } else {
-            _logout();
+            logout();
             deferred.reject("Not logged in!");
         }
         return deferred.promise;

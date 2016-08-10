@@ -1,0 +1,44 @@
+﻿<div class="bar bar-header bar-stable">
+    <h1 class="title">Register Screen</h1>
+</div>
+<form name="registerForm">
+    <ion-view title="Register">
+        <ion-content has-header="true" has-tabs="true" padding="true">
+            <div class="list">
+                <label class="item item-input">
+                    <input name="username" type="text" ng-model="login.username"
+                           placeholder="Username" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input name="password" type="password" ng-model="login.password"
+                           placeholder="Password" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input name="confirmPassword" type="password" ng-model="login.confirmPassword"
+                           placeholder="Confirm Password" ng-required="true" data-match="registerForm.password">
+                </label>
+                <label class="item item-text">
+                    <span class="help-block"
+                          ng-show="registerForm.confirmPassword.$error.match">Passwords do not match...</span>
+                </label>
+                <label class="item item-input">
+                    <input name="firstName" type="text" ng-model="login.firstName"
+                           placeholder="Name" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input name="surname" type="text" ng-model="login.surname"
+                           placeholder="Surname" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input name="email" type="email" ng-model="login.email"
+                           placeholder="Email" ng-required="true">
+                </label>
+            </div>
+            <div class="assertive" ng-show="hasError">{{errorMessage}}</div>
+            <button class="button button-block button-positive" ng-click="submitRegisterForm()">
+                CREATE ACCOUNT
+            </button>
+            By creating an account you agree to the Terms of Use and Privacy Policy.
+        </ion-content>
+    </ion-view>
+</form>

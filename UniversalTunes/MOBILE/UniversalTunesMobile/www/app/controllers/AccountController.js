@@ -8,7 +8,10 @@ function AccountController($ionicPopup, AccountService, $location) {
     //class variables.
     var vm = this;
 
-    vm.logout = function () {
+    vm.logout = logout;
+
+    function logout() {
+
         var confirmPopup = $ionicPopup.confirm({
             title: "Logout",
             template: "You are about to logout. Click 'OK' to continue"

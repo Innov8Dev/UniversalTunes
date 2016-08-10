@@ -1,58 +1,75 @@
-﻿angular.module("AmaCouponApp")
-    .factory(
-        "EnumService", [
-            "$http", "$rootScope", "DeviceInformation",
-            function($http, $rootScope, DeviceInformation) {
+﻿angular.module("app.EnumService")
+    .service("EnumService", EnumService);
 
-                var _statusType = [];
+EnumService.$inject = ['$http','$q','$rootScope','SecurityService','DeviceInformation'];
 
-                var _enumsLoadedEvent = "enums-loaded";
-                var _allEnumsLoaded = false;
+function EnumService($http, $q, $rootScope, SecurityService, DeviceInformation) {
 
-                var checkAllEnumsLoaded = function() {
-                    if (_statusType.length > 0
-                        && _securityType.length > 0) {
-                        _allEnumsLoaded = true;
-                        $rootScope.$emit(_enumsLoadedEvent, _allEnumsLoaded);
-                    }
-                };
+    // Models/Variables----------------------------------------------M-
+    var vm = this;
 
-                var _getAllEnumsLoaded = function() {
-                    return _allEnumsLoaded;
-                };
+    //vm.userType = [];
+    vm.securityType = [];
+    vm.priceType = [];
 
-                //_statusType -Start
-                var loadStatusType = function() {
-                    return $http.get(DeviceInformation.serverLocation + "api/Enums/StatusTypeEnum").then(function(result) {
-                        _statusType = result.data;
-                        checkAllEnumsLoaded();
-                    });
-                };
-                var getStatusTypes = function() {
-                    return _statusType;
-                };
-                loadStatusType();
-                //_statusType -End
+    vm.enumsLoadedEvent = 'enums-loaded';
+    vm.allEnumsLoaded = false;
 
-                //_securityType -Start
-                var _securityType = [];
-                var loadSecurityType = function() {
-                    return $http.get(DeviceInformation.serverLocation + "api/Enums/SecurityEnum").then(function(result) {
-                        _securityType = result.data;
-                        checkAllEnumsLoaded();
-                    });
-                };
-                var getSecurityTypes = function() {
-                    return _securityType;
-                };
-                loadSecurityType();
-                //_securityType -End
+    // Functions ----------------------------------------------------F-
+    //vm.loadUserType = loadUserType;
+    vm.loadSecurityType = loadSecurityType;
+    vm.priceType = priceType;
+    vm.checkAllEnumsLoaded = checkAllEnumsLoaded;
+    vm.getAllEnumsLoaded = getAllEnumsLoaded;
 
-                return {
-                    statusTypes: getStatusTypes,
-                    securityTypes: getSecurityTypes,
-                    enumsLoadedEvent: _enumsLoadedEvent,
-                    enumsLoaded: _getAllEnumsLoaded
-                };
-            }
-        ]);
+    //function loadUserType() {
+    //    var defered = $q.defer();
+    //    $http.get("/api/Enums/UserTypeEnum")
+    //        .then(function (result) {
+    //            vm.userType = result.data;
+    //            checkAllEnumsLoaded();
+    //        }, function (error) {
+    //            defered.reject(error);
+    //        });
+    //    return defered.promise;
+    //};
+
+    function loadSecurityType() {
+        var defered = $q.defer();
+        return $http.get(DeviceInformation.serverLocation + "/api/AspNetRoles/roles")
+            .then(function (result) {
+                vm.securityType = result.data;
+                checkAllEnumsLoaded();
+            }, function (error) {
+                defered.reject(error);
+            });
+        return defered.promise;
+    };
+
+    function priceType() {
+        var defered = $q.defer();
+        return $http.get(DeviceInformation.serverLocation + "/api/Enums/PriceType")
+            .then(function (result) {
+                vm.priceType = result.data;
+                checkAllEnumsLoaded();
+            }, function (error) {
+                defered.reject(error);
+            });
+        return defered.promise;
+    };
+
+    function checkAllEnumsLoaded() {
+        if (vm.securityType.length > 0 && vm.priceType.length > 0) {
+            vm.allEnumsLoaded = true;
+            $rootScope.$emit(vm.enumsLoadedEvent, vm.allEnumsLoaded);
+        }
+    };
+
+    function getAllEnumsLoaded() {
+        return vm.allEnumsLoaded;
+    }
+
+    loadUserType();
+    loadSecurityType();
+    priceType();
+}

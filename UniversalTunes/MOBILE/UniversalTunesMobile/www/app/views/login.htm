@@ -1,0 +1,23 @@
+﻿<div class="bar bar-header bar-stable">
+    <h1 class="title">Login Screen</h1>
+</div>
+<form name="loginForm">
+    <ion-view title="Login">
+        <ion-content has-header="true" has-tabs="true" padding="true">
+            <div class="list">
+                <label class="item item-input">
+                    <input name="username" type="text" ng-model="login.username"
+                           placeholder="Username" ng-required="true">
+                </label>
+                <label class="item item-input">
+                    <input name="password" type="password" ng-model="login.password"
+                           placeholder="Password" ng-required="true">
+                </label>
+            </div>
+            <div class="assertive" ng-show="hasError">{{errorMessage}}</div>
+            <button class="button button-block button-positive" ng-click="submitLoginForm()">
+                LOGIN
+            </button>
+        </ion-content>
+    </ion-view>
+</form>

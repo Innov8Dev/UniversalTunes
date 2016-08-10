@@ -28,6 +28,7 @@ function SecurityService($localStorage, $rootScope) {
         vm.currentUser.accessToken = accessToken;
         vm.currentUser.loggedIn = true;
         $rootScope.isLoggedIn = true;
+
         $localStorage.authData = { token: accessToken, userName: username };
     };
 

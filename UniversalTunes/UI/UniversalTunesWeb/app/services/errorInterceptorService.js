@@ -1,35 +1,33 @@
 ﻿angular
     .module('app.errorInterceptorService', [])
-    .factory('errorInterceptorService', errorInterceptorService);
+    .service('errorInterceptorService', errorInterceptorService);
 
-errorInterceptorService.$inject = ['$log', '$q', '$injector'];
-function errorInterceptorService($log, $q, $injector) {
+errorInterceptorService.$inject = ['$log', '$q', '$injector', '$location', '$localStorage'];
+function errorInterceptorService($log, $q, $injector, $location, $localStorage) {
 
-    return {
-            'response': function (response) {
-                //Will only be called for HTTP up to 300
-                return response;
-            },
-            'responseError': function (rejection) {
-                var config = rejection.config || {};
-                
-                if (rejection.statusText) {
-                    console.log("Get the status text here!");
-                    console.log(rejection.data);
-                }
-                else {
-                    console.log("The error!");
-                }
+    var authInterceptorServiceFactory = {};
 
-                if (rejection.status >= 401 || rejection.status <= 400) {
+    var _request = function (config) {
 
-                    var $http = $injector.get('$http');
+        config.headers = config.headers || {};
+        var token = null;
+        if ($localStorage.authData) {
+            token = $localStorage.authData.token;
+        }
+        if (token != null && token != "") {
+            config.headers.Authorization = "Bearer " + token;
+        }
 
-                    var libService = new LibService();
-                    libService.interceptorForHandlingErrors($http, rejection.data);
-                }
+        return config;
+    };
+    var _responseError = function (rejection) {
+        if (rejection.status === 401) {
+            $location.path("/login");
+        }
+        return $q.reject(rejection);
+    };
+    authInterceptorServiceFactory.request = _request;
+    authInterceptorServiceFactory.responseError = _responseError;
 
-                return $q.reject(rejection);
-            }
-        };
+    return authInterceptorServiceFactory;
 }

@@ -2,12 +2,13 @@
 .module('app.SecurityService', [])
 .service('SecurityService', SecurityService);
 
-SecurityService.$inject = ['$rootScope', 'EnumService'];
+SecurityService.$inject = ['$localStorage', '$rootScope', 'EnumService'];
 
-function SecurityService($rootScope, EnumService) {
+function SecurityService($localStorage, $rootScope, EnumService) {
     //variables
     var vm = this;
     vm.scopeUpdateEvent = 'current-user-updated';
+
     vm.currentUser = {
         loggedIn: false,
         id: 0,
@@ -31,8 +32,7 @@ function SecurityService($rootScope, EnumService) {
         vm.currentUser.userType = userType;
         vm.currentUser.loggedIn = true;
 
-        $rootScope.$emit(vm.scopeUpdateEvent, vm.currentUser);
-
+        $localStorage.authData = { token: accessToken, userName: username };
     };
 
     function logout() {

@@ -1,9 +1,9 @@
-﻿angular.module('app.Login', ['angularUtils.directives.dirPagination', 'angular-toArrayFilter'])
+﻿angular.module('app.Login', [])
 .controller('LoginController', LoginController);
 
-LoginController.$inject = ['SecurityService','AccountService', '$modal', '$location','$scope']
+LoginController.$inject = ['SecurityService','AccountService', '$modal', '$location']
 
-function LoginController(SecurityService, AccountService, $modal, $location, $scope) {
+function LoginController(SecurityService, AccountService, $modal, $location) {
 
     var vm = this;
     vm.login = {};

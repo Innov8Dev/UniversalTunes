@@ -18,6 +18,7 @@ function IndexController($rootScope, $location, SecurityService, AccountService,
     };
 
     vm.currentUser = SecurityService.currentUser;
+
     vm.initHome = initHome;
     vm.logout = logout;
     vm.isAllowed = isAllowed;
@@ -25,15 +26,14 @@ function IndexController($rootScope, $location, SecurityService, AccountService,
 
     //Login state
     function initHome() {
-        AccountService.init().then(function (r) {
-            $rootScope.isLoggedIn = true;
-            $location.path("/tab/myCoupons");
-        },
-            function (e) {
+        AccountService.init()
+            .then(function (result) {
+                $rootScope.isLoggedIn = true;
+                $location.path("/tab/dashboard");
+            }, function (error) {
                 $rootScope.isLoggedIn = false;
                 $location.path("/security/login");
             });
-
     };
 
     function logout() {
